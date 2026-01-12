@@ -199,7 +199,7 @@ func (cmdType CmdType) getArgs(args []string) []string {
 		CmdTypePythonPoetry: "uvx poetry",
 		// CmdTypeRubyGem is handled separately below
 		CmdTypePythonPipExec: "",
-		CmdTypeRubyGemExec:   "",
+		CmdTypeRubyGemExec:   "gem exec",
 		CmdTypeRustCargoExec: "",
 	}
 

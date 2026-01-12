@@ -72,8 +72,9 @@ func gemCmd() *cobra.Command {
 
 func gemExecCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "gem-exec",
-		Short: "Run a gem already installed inside sandbox",
+		Use:        "gem-exec",
+		Short:      "Run a gem already installed inside sandbox",
+		Deprecated: "`asb gem-exec` is deprecated, please use `asb gem exec` instead.",
 	}
 	return createCmd(cmd, cmdrunner.CmdTypeRubyGemExec)
 }

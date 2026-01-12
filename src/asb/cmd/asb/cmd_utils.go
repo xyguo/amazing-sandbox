@@ -23,7 +23,7 @@ func createCmd(cmd *cobra.Command, cmdType cmdrunner.CmdType) *cobra.Command {
 			Ctx(cmd.Context()).
 			Str("name", cmd.Name()).
 			Strs("args", args).
-			Msg("Passing help to sub-command")
+			Msg("Deprecated: use `gem exec` instead")
 		cmd.Run(cmd, args)
 	})
 	cmd.Run = func(cmd *cobra.Command, args []string) {
