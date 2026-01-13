@@ -136,23 +136,24 @@ Available Commands:
   cargo-exec  Run a Rust-based binary package already installed inside sandbox
   completion  Generate the autocompletion script for the specified shell
   gem         Run a Ruby gem-based CLI tool
-  gem-exec    Run a gem already installed inside sandbox
   help        Help about any command
   npm         Run an npm command
   npx         Run an npx command
   poetry      Run a poetry command
+  uv          Run a uv command
   uvx         Run a Python-based package already installed inside sandbox using uvx
   version     Display asb version
   yarn        Run a yarn command
 
 Flags:
-  -d, --directory string   Working directory for this command (default: "<current directory>")
-  -e, --load-env           Load .env file from working directory (default true)
-  -h, --help               help for asb
-  -x, --no-disk-access     Disable disk access inside the sandbox
-  -n, --no-network         Disable network access inside the sandbox
-  -r, --read-only          Load working directory and referenced directories as read-only
-  -w, --read-write         Load working directory and referenced directories as read-only (default true)
+  -i, --custom-docker-image string   Use a custom Docker image for the sandbox
+  -d, --directory string             Working directory for this command (default "<current directory>")
+  -h, --help                         help for asb
+  -e, --load-env                     Load .env file from working directory (default true)
+  -x, --no-disk-access               Disable disk access inside the sandbox
+  -n, --no-network                   Disable network access inside the sandbox
+  -r, --read-only                    Load working directory and referenced directories as read-only
+  -w, --read-write                   Load working directory and referenced directories as read-only (default true)
 
 Use "asb [command] --help" for more information about a command.
 ```
