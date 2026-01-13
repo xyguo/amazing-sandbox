@@ -62,6 +62,14 @@ func SetNetworkType(networkType NetworkType) Option {
 	}
 }
 
+func SetCustomDockerImage(dockerImage string) Option {
+	return func(c *Config) {
+		if dockerImage != "" {
+			c.dockerBaseImage = dockerImage
+		}
+	}
+}
+
 func SetRunAsNonRoot(runAsNonRoot bool) Option {
 	return func(c *Config) {
 		c.runAsNonRoot = runAsNonRoot

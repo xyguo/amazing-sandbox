@@ -79,6 +79,8 @@ func getCmdConfig(cmd *cobra.Command, args []string) []cmdrunner.Option {
 	readOnly := getBoolFlagOrFail(cmd, "read-only")
 	noDiskAccess := getBoolFlagOrFail(cmd, "no-disk-access")
 	loadEnv := getBoolFlagOrFail(cmd, "load-env")
+	customDockerImage := getStringFlagOrFail(cmd, "custom-docker-image") // Optional
+
 	// Note that, readWrite is true by default
 	if noDiskAccess || readOnly {
 		readWrite = false
@@ -130,6 +132,15 @@ func getCmdConfig(cmd *cobra.Command, args []string) []cmdrunner.Option {
 			options = append(options, cmdrunner.SetLoadDotEnv(true))
 		}
 	}
+
+	if customDockerImage != "" {
+		log.Debug().
+			Ctx(cmd.Context()).
+			Str("customDockerImage", customDockerImage).
+			Msg("Using custom Docker image for the sandbox")
+		options = append(options, cmdrunner.SetCustomDockerImage(customDockerImage))
+	}
+
 	return options
 }
 

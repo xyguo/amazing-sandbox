@@ -29,6 +29,7 @@ Configurable via CLI parameters
 - [x] Provide Read-only access to the referenced directories via `-r`
 - [x] Disable network access - via `-n`
 - [x] Disable `.env` file loading via `--load-env=false`
+- [x] Add ability pass a custom Docker image via `-i`
 
 ## Supported
 
