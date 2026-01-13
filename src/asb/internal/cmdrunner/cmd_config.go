@@ -3,6 +3,7 @@ package cmdrunner
 import (
 	"os"
 	"path"
+	"slices"
 	"strings"
 
 	"github.com/rs/zerolog/log"
@@ -219,10 +220,13 @@ func (cmdType CmdType) getArgs(args []string) []string {
 	}
 
 	if cmdType == CmdTypeRubyGem {
-		// Make sure to use --conservative flag for install command
+		// Make sure to use --conservative flag for install & exec command
 		// to avoid attempting to update already installed gems
-		if len(args) > 0 && args[0] == "install" {
+		if len(args) > 0 && args[0] == "install" && !slices.Contains(args, "--conservative") {
 			return append([]string{"gem", "install", "--conservative"}, args[1:]...)
+		}
+		if len(args) > 0 && args[0] == "exec" && !slices.Contains(args, "--conservative") {
+			return append([]string{"gem", "exec", "--conservative"}, args[1:]...)
 		}
 
 		return append([]string{"gem"}, args...)
