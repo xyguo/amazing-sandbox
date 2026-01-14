@@ -219,6 +219,9 @@ func setupDirMappingsForCodingAgents(config Config) ([]string, error) {
 		return nil, fmt.Errorf("failed to touch %s: %w", claudeConfigFile, err)
 	}
 
+	// For claude add IS_SANDBOX=1 (https://github.com/ashishb/amazing-sandbox/issues/16)
+	dockerArgs = append(dockerArgs, "--env=IS_SANDBOX=1")
+
 	// /tmp/claude.json mapped to /root/.claude.json (inside Docker)
 	dockerArgs = append(dockerArgs,
 		fmt.Sprintf("--mount=type=bind,src=%s,target=/root/.claude.json", claudeConfigFile))
