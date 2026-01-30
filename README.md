@@ -75,7 +75,7 @@ $ asb yarn install
 ...
 ```
 
-### Run [HTML linter](https://www.npmjs.com/package/htmlhint) inside sandbox with `-n`, that is, no Internet access
+### Run [HTML linter](https://www.npmjs.com/package/htmlhint) inside the sandbox with `-n`, that is, no Internet access
 
 ```bash
 $ asb -n npx htmlhint
@@ -158,8 +158,18 @@ Flags:
 Use "asb [command] --help" for more information about a command.
 ```
 
+## How I use it
+
+For interactive shells, one can use bash aliases, for example, `alias htmlhint=asb -n npx htmlhint`.
+However, this does not work for non-interactive shells, for example, inside [Makefile](https://ashishb.net/programming/use-makefile-for-android/).
+So, I prefer creating `~/.local/bin` which contains `htmlhint` [file](https://github.com/ashishb/dotfiles/blob/master/_local_bin/htmlhint)
+containing `asb npx htmlhint "$@"` and add `.local/bin` to the `$PATH` in `~/.bash_profile` via `export PATH=$PATH:$HOME/.local/bin`.
+
 ## FAQ
 
 1. Why not use [bubblewrap](https://github.com/containers/bubblewrap)?
    It only [supports](https://github.com/containers/bubblewrap/issues/396) GNU/Linux.
    Further, the developer experience for trying to run a simple tool like `htmlhint` or `yamllint` is sub-par.
+1. Why not use [Firejail](https://github.com/netblue30/firejail)?
+   No support for Mac OS or Windows.
+   Further, the developer experience for trying to run a simple tool like `htmlhint` or `yamllint` is sub-par.   
