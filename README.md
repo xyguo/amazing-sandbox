@@ -171,7 +171,7 @@ Flags:
   -x, --no-disk-access               Disable disk access inside the sandbox
   -n, --no-network                   Disable network access inside the sandbox
   -r, --read-only                    Load working directory and referenced directories as read-only
-  -w, --read-write                   Load working directory and referenced directories as read-only (default true)
+  -w, --read-write                   Load working directory and referenced directories as read-write (default true)
 
 Use "asb [command] --help" for more information about a command.
 ```
