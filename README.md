@@ -191,3 +191,5 @@ containing `asb npx htmlhint "$@"` and add `.local/bin` to the `$PATH` in `~/.ba
 1. Why not use [Firejail](https://github.com/netblue30/firejail)?
    No support for Mac OS or Windows.
    Further, the developer experience for trying to run a simple tool like `htmlhint` or `yamllint` is sub-par.
+1. Why not use `sandbox-exec` on Mac OS?
+   `sandbox-exec` is [deprecated](https://github.com/openai/codex/issues/215)
